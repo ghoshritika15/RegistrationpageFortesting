@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Registration Page</title>
+    <link rel="shortcut icon" type="image/jpg" href="../RegistrationFormForTesting/image/fevicon.jpg" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        h1 {
+            /* text-align: center; */
+            color: slateblue;
+        }
+
+        div.form-subHeader {
+            text-align: center;
+        }
+
+        div.container {
+            background-image: url('../RegistrationFormForTesting/image/background.jpg');
+            padding-left: 300px;
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: repeat-x,
+                repeat-y;
+        }
+    </style>
+</head>
+
+<body>
+    <form name='registration' onSubmit="return formValidation();">
+        <div class="container form-all">
+            <div class="form-section">
+                <div>
+                    <h1 id="header" class="form-header">
+                        Student Registration Form
+                    </h1>
+                    <br>
+                </div>
+            </div>
+            <div class="form-line">
+                <div class="form-firstname" style="display: inline-block;">
+                    <label class="form-sub-label" for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="studentName[first]" class="form-textbox" size="10" />
+                </div>
+                <div class="form-middlename" style="display: inline-block;">
+                    <label class="form-sub-label middlename" for="middle_name">Middle Name </label>
+                    <input type="text" id="middle_name" name="studentName[middle]" class="form-textbox" size="10" />
+                </div>
+                <div class="form-lastname" style="display: inline-block;">
+                    <label class="form-sub-label lastname" for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="studentName[last]" class="form-textbox" size="15" />
+                </div>
+            </div>
+            <div class="form-line">
+                <div class="form-line" style="display: inline-block;">
+                    <label for="start-date">BirthDay</label>
+                    <input type="date" id="start-date" name="start_date" />
+                </div>
+            </div>
+            <div>
+                <div class="Gender">
+                    <label>Gender</label>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Others
+                </div>
+            </div>
+            <div class="form-address-table">
+                <div class="form-address-line-wrapper">
+                    <span class="form-address-line form-address-street-line">
+                        <span class="form-sub-label-container" style="vertical-align:top">
+                            <label class="form-sub-label" for="input_addr_line1" id="sublabel_addr_line1">
+                                Street Address </label>
+                            <input type="text" id="input_addr_line1" name="address[addr_line1]"
+                                class="form-textbox form-address-line" placeholder="Floor No | Flat Name" value="" />
+                        </span>
+                    </span>
+                </div>
+                <div class="form-address-line-wrapper">
+                    <span class="form-address-line form-address-street-line ">
+                        <span class="form-sub-label-container" style="vertical-align:top">
+                            <label class="form-sub-label" for="input_addr_line2" id="sublabel_addr_line2">
+                                Street Address Line 2 </label>
+                            <input type="text" id="input_addr_line2" name="address[addr_line2]"
+                                class="form-textbox form-address-line" placeholder=" Building | Street Name" value=""
+                                data-component="address_line_2" />
+                        </span>
+                    </span>
+                </div>
+                <div class="form-address-line-wrapper">
+                    <span class="form-address-line form-address-city-line">
+                        <span class="form-sub-label-container" style="vertical-align:top">
+                            <label class="form-sub-label" for="input_city" id="sublabel_city"> City </label>
+                            <input type="text" id="input_city" name="address[city]"
+                                class="form-textbox form-address-city" value="" data-component="city" />
+                        </span>
+                    </span>
+                    <span class="form-address-line form-address-state-line">
+                        <span class="form-sub-label-container" style="vertical-align:top">
+                            <label class="form-sub-label" for="input_state" id="sublabel_state"> State / Province
+                            </label>
+                            <input type="text" id="input_state" name="address[state]"
+                                class="form-textbox form-address-state" value="" data-component="state" />
+                        </span>
+                    </span>
+                </div>
+                <div class="form-address-line-wrapper">
+                    <span class="form-address-line form-address-zip-line">
+                        <span class="form-sub-label-container" style="vertical-align:top">
+                            <label class="form-sub-label" for="input_23_postal" id="sublabel_23_postal"> Postal / Zip
+                                Code </label>
+                            <input type="text" id="input_postal" name="address[postal]"
+                                class="form-textbox form-address-postal" value="" data-component="zip" />
+
+                        </span>
+                    </span>
+                </div>
+                <div>
+                    <div id="email" class="form-input-wide" data-layout="half">
+                        <span class="form-sub-label-container" style="vertical-align:top">
+                            <label class="form-sub-label" for="studentEmail" id="sublabel_input_6"
+                                style="min-height:13px" aria-hidden="false"> Student Email </label>
+                            <input type="email" id="studentEmail" name="studentEmail"
+                                class="form-textbox validate[Email]" style="width:310px" size="310" value=""
+                                placeholder="ex: myname@example.com" data-component="email" />
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <div id="cid_27" class="form-input-wide">
+                        <span class="form-sub-label-container" style="vertical-align:top">
+                            <label class="form-label form-label-top" id="label_27" for="mobileNumber[full]"> Mobile
+                                Number
+                            </label>
+                            <input type="tel" id="mobileNumber[full]" name="mobileNumber[full]" data-type="mask-number"
+                                class="mask-phone-number form-textbox validate[Fill Mask]" style="width:310px"
+                                data-masked="true" value="" placeholder="(000) 000-0000" data-component="phone" />
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <div id="input_course" class="form-input-wide" data-layout="half">
+                        <label class="form-label form-label-top form-label-auto dropdown-toggle" id="label_course" for="input_course">
+                            Courses
+                        </label>
+                        <select class="form-dropdown" id="input_course" name="courses" data-component="dropdown">
+                            <option value=""> Please Select </option>
+                            <option value="Selenium Webdriver"> Selenium Webdriver</option>
+                            <option value="Mysql"> Mysql </option>
+                            <option value="Postman"> Postman </option>
+                            <option value="Rest Assured"> Rest Assured </option>
+                            <option value="Cypress"> Cypress </option>
+                            <option value="Devops"> Devops </option>
+                            <option value="Robotic Process Automation"> Robotic Process Automation </option>
+                            <option value="Uipath"> Uipath </option>
+                            <option value="Webdriver io"> Webdriver io </option>
+                            <option value="Appium"> Appium </option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="language">Choose languages you know</label>
+                        <div id="language" style="display: inline-block;">
+                            <input type="checkbox" name="C" value="yes"> C
+                            <input type="checkbox" name="C++" value="yes"> C++
+                            <input type="checkbox" name="Java" value="yes"> Java
+                            <input type="checkbox" name="Python" value="yes"> Python
+                            <input type="checkbox" name="Python" value="yes"> Javascript
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label class="form-label form-label-top form-label-auto" id="comment" for="input_comment">
+                        Additional
+                        Comments </label>
+                    <div id="comment" class="form-input-wide" data-layout="full">
+                        <textarea id="input_comment" class="form-textarea" name="comment"
+                            style="width:648px;height:133px" data-component="textarea"
+                            placeholder="Type here..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="button">
+                    <div class="submit button" style="display: inline-block;">
+                        <div data-align="left" class="form-buttons-wrapper form-buttons-left">
+                            <input class="btn btn-primary active" type="submit" value="Submit">
+                        </div>
+                    </div>
+                    <div class="clear button" style="display: inline-block;">
+                        <div data-align="right" class="form-buttons-wrapper form-buttons-right">
+                            <input class="btn btn-primary  active" type="reset" value="Clear">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+</body>
+<script type="text/javascript">
+    function formValidation() {
+
+        // Storing Field Values In Variables
+        var firstname = document.getElementById("first_name").value;
+        var middlename = document.getElementById("middle_name").value;
+        var lastname = document.getElementById("last_name").value;
+        var email = document.getElementById("studentEmail").value;
+        var contact = document.getElementById("mobileNumber[full]").value;
+        var gender = document.getElementsByName("gender").value;
+        // Regular Expression For Email
+        var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        // Conditions
+
+        if (firstname != '' && lastname != '' && email != '' && contact != '') {
+            if (email.match(emailReg)) {
+                if (contact.length == 10) {
+                    if (gender == 'male' || gender == 'female' || gender == 'other') {
+                        alert("All type of validation has done.");
+                        return true;
+                    } else {
+                        alert('You can select your gender. If you dont want to specify then please select others')
+                    }
+                } else {
+                    alert("The Contact No. must be at least 10 digit long!");
+                    return false;
+                }
+            } else {
+                alert("Invalid Email Address...!!!");
+                return false;
+            }
+        } else {
+            alert("Please fill out the mandatory details i.e Name, Email and Contact")
+        }
+    }
+</script>
+
+</html>
