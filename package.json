@@ -1,0 +1,28 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:run":"cypress run",
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "test:allure": "npm run cy:run report:allure"
+  },
+  "author": "Ritika Ghosh",
+  "license": "ISC",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.3.6",
+    "cypress": "^5.4.0",
+    "cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress-iframe": "^1.0.1",
+    "cypress-sql-server": "^1.0.0",
+    "cypress-wait-until": "^1.7.1",
+    "mocha-allure-reporter": "^1.4.0"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}

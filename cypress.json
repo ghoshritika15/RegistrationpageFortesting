@@ -1,0 +1,17 @@
+{
+    "defaultCommandTimeout": 6000,
+    "execTimeout": 10000,
+    "env": {
+        "url": "http://localhost/Practice/",
+        "uName": "rghosh@webmd.net",
+        "pWord": "medscape"
+    },
+    "testFiles": "**/*.feature",
+    "reporter":"mochawsome",
+    "reporterOptions":{
+        "reportDir":"cypress/results/specs",
+        "overwrite":false,
+        "html":false,
+        "json":true
+    }
+}
