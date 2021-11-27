@@ -6,7 +6,7 @@ Feature: Login Page Validation
     Given Enter Login Url
     When Enter username and password
     |username|password|
-    |rghosh@webmd.net|jan@2021|
+    |ritika@abc.com|jan@2021|
     And Click on Login 
     Then Verify current url
     And Verify logged in user present in datatable
